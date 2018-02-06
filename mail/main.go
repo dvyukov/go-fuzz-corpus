@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"net/mail"
 	"reflect"
+	"strings"
 )
 
 func Fuzz(data []byte) int {
@@ -20,18 +21,32 @@ func Fuzz(data []byte) int {
 	msg.Header.Date()
 	if addr, err := mail.ParseAddress(msg.Header.Get("from")); err == nil {
 		addr1, err := mail.ParseAddress(addr.String())
-		if false {
-			// https://github.com/golang/go/issues/11292
-			// https://github.com/golang/go/issues/11293
-			// https://github.com/golang/go/issues/11294
-			if err != nil {
-				panic(err)
-			}
-			if !reflect.DeepEqual(addr, addr1) {
-				panic("addr changed")
-			}
+		if err != nil {
+			panic(err)
+		}
+		if !reflect.DeepEqual(addr, addr1) {
+			panic("addr changed")
 		}
 	}
 	io.Copy(ioutil.Discard, msg.Body)
+	return 1
+}
+
+func FuzzParseAddressList(data []byte) int {
+	list, err := mail.ParseAddressList(string(data))
+	if err != nil {
+		return 0
+	}
+	var addrs []string
+	for _, addr := range list {
+		addrs = append(addrs, addr.String())
+	}
+	list1, err := mail.ParseAddressList(strings.Join(addrs, ","))
+	if err != nil {
+		panic(err)
+	}
+	if !reflect.DeepEqual(list, list1) {
+		panic("list changed")
+	}
 	return 1
 }
