@@ -4,7 +4,7 @@
 package flatbuffers
 
 import (
-	"github.com/dvyukov/go-fuzz/examples/flatbuffers/mygame"
+	"github.com/dvyukov/go-fuzz-corpus/flatbuffers/mygame"
 	flatbuffers "github.com/google/flatbuffers/go"
 )
 

@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/dvyukov/go-fuzz/examples/fuzz"
+	"github.com/dvyukov/go-fuzz-corpus/fuzz"
 	"gopkg.in/mgo.v2/bson"
 )
 

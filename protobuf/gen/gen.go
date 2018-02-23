@@ -5,9 +5,10 @@ package main
 
 import (
 	"fmt"
-	pb "github.com/dvyukov/go-fuzz/examples/protobuf/pb"
-	"github.com/golang/protobuf/proto"
 	"os"
+
+	pb "github.com/dvyukov/go-fuzz-corpus/protobuf/pb"
+	"github.com/golang/protobuf/proto"
 )
 
 func main() {

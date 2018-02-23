@@ -12,7 +12,7 @@ import (
 	querypb "github.com/youtube/vitess/go/vt/proto/query"
 	"github.com/youtube/vitess/go/vt/sqlparser"
 
-	"github.com/dvyukov/go-fuzz/examples/fuzz"
+	"github.com/dvyukov/go-fuzz-corpus/fuzz"
 )
 
 // shortReader is a io.Reader that forces all reads to only be

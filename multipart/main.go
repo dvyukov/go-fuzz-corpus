@@ -11,7 +11,7 @@ import (
 	"mime/multipart"
 	"net/textproto"
 
-	"github.com/dvyukov/go-fuzz/examples/fuzz"
+	"github.com/dvyukov/go-fuzz-corpus/fuzz"
 )
 
 type Part struct {
