@@ -4,8 +4,10 @@
 package ttf
 
 import (
-	"code.google.com/p/freetype-go/freetype"
 	"image"
+
+	"github.com/golang/freetype"
+	"golang.org/x/image/font"
 )
 
 var img = image.NewNRGBA64(image.Rectangle{image.Point{0, 0}, image.Point{59, 39}})
@@ -21,7 +23,7 @@ func Fuzz(data []byte) int {
 	ctx := freetype.NewContext()
 	ctx.SetFont(f)
 	ctx.SetSrc(image.Black)
-	ctx.SetHinting(freetype.FullHinting)
+	ctx.SetHinting(font.HintingFull)
 	ctx.SetDst(img)
 	ctx.SetDPI(51)
 	ctx.SetFontSize(9)

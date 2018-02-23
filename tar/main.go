@@ -9,7 +9,7 @@ import (
 	"io"
 	"io/ioutil"
 
-	"github.com/dvyukov/go-fuzz/examples/fuzz"
+	"github.com/dvyukov/go-fuzz-corpus/fuzz"
 )
 
 func Fuzz(data []byte) int {
