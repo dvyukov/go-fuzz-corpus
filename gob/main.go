@@ -10,7 +10,7 @@ import (
 	"io"
 	"reflect"
 
-	"github.com/dvyukov/go-fuzz/examples/fuzz"
+	"github.com/dvyukov/go-fuzz-corpus/fuzz"
 )
 
 type X struct {
