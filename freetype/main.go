@@ -2,7 +2,7 @@ package freetype
 
 import (
 	"image"
-	
+
 	"github.com/golang/freetype"
 	"golang.org/x/image/font"
 )

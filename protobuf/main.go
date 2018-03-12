@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"strings"
 
-	. "github.com/dvyukov/go-fuzz/examples/fuzz"
-	pb "github.com/dvyukov/go-fuzz/examples/protobuf/pb"
+	. "github.com/dvyukov/go-fuzz-corpus/fuzz"
+	pb "github.com/dvyukov/go-fuzz-corpus/protobuf/pb"
 	"github.com/golang/protobuf/proto"
 )
 
