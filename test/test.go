@@ -174,3 +174,8 @@ func bla() error {
 func test5() bool {
 	return nil == bla()
 }
+
+func test6() {
+	v1 := []int{1, 2}
+	_ = v1[0] < v1[1]
+}
