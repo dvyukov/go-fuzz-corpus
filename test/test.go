@@ -9,6 +9,8 @@ import (
 
 	// Test vendoring support.
 	vendored_foo "non.existent.com/foo"
+
+	"github.com/dvyukov/go-fuzz-corpus/test/testdep"
 )
 
 func init() {
@@ -178,4 +180,8 @@ func test5() bool {
 func test6() {
 	v1 := []int{1, 2}
 	_ = v1[0] < v1[1]
+}
+
+func issue194(v testdep.I) testdep.I {
+	return testdep.B(v == testdep.V1{} || v == testdep.V2{})
 }
