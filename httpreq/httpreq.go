@@ -107,15 +107,18 @@ func Fuzz(data []byte) int {
 	if err != nil {
 		// https://github.com/golang/go/issues/11202
 		// https://github.com/golang/go/issues/11203
-		if strings.Contains(err.Error(), "invalid URI for request") {
-			return 0
-		}
-		if strings.Contains(err.Error(), "missing protocol scheme") {
-			return 0
-		}
 		// https://github.com/golang/go/issues/11206
-		if strings.Contains(err.Error(), "malformed HTTP version") {
-			return 0
+		ok := []string{
+			"invalid URI for request",
+			"missing protocol scheme",
+			"malformed HTTP version",
+			"invalid port",
+		}
+		e := err.Error()
+		for _, skip := range ok {
+			if strings.Contains(e, skip) {
+				return 0
+			}
 		}
 		fmt.Printf("req0: %q\nURL: %#v\n", data, *r0.URL)
 		fmt.Printf("req1: %q\n", data1)
