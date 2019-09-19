@@ -9,6 +9,12 @@ import (
 )
 
 func Fuzz(data []byte) int {
+	// This Fuzz function allocates heavily.
+	// To avoid OOM, cap data at 16k.
+	// This should be plenty to catch genuine bugs.
+	if len(data) > 16384 {
+		return -1
+	}
 	f := string(data[:len(data)/2])
 	s := string(data[len(data)/2:])
 	for _, ctor := range []func() interface{}{
