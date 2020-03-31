@@ -49,7 +49,7 @@ func (c *MyConn) Write(b []byte) (n int, err error) {
 }
 
 func (c *MyConn) Close() error {
-	close(c.done)
+	c.done <- true
 	return nil
 }
 
