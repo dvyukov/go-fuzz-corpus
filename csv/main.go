@@ -38,7 +38,7 @@ func Fuzz(data []byte) int {
 		var rec0 [][]string
 		for _, r := range rec {
 			if len(r) > 0 {
-				rec0 = append(rec0)
+				rec0 = append(rec0, r)
 			}
 		}
 
